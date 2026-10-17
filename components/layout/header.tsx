@@ -25,16 +25,16 @@ export function GlobalHeader() {
   return (
     <header
       className={cn(
-        "w-screen fixed top-0 z-50 transition-[background-color] duration-300",
+        "w-screen fixed top-0 z-50 transition-[background-color] duration-100",
         scrolled ? "bg-background" : "",
       )}
     >
-      <div className="max-w-300 py-5 w-full mx-auto flex justify-between items-center">
+      <div className="max-w-300 py-5 w-full mx-auto flex justify-between items-center px-5 lg:px-0">
         <Link href={"/"}>
           <BrelloScanLogo className="w-30" />
         </Link>
         <div>
-          <Link className={buttonVariants()} href={"/"}>
+          <Link className={buttonVariants()} href={"/result#cta"}>
             Get Early Access
           </Link>
         </div>

@@ -1,0 +1,179 @@
+{
+  "_as_of": "2026-10-15",
+  "_sources": {
+    "anthropic": "https://platform.claude.com/docs/en/about-claude/pricing (checked 2026-10-16)",
+    "openai": "https://morphllm.com/openai-api-pricing (third-party, checked 2026-08-21; verify against OpenAI's pricing page)"
+  },
+  "_units": "USD per 1M tokens, standard tier. Batch = 50% off input and output on both providers.",
+  "openai": {
+    "gpt-5.5": {
+      "input": 5.0,
+      "cached_input": 0.5,
+      "output": 30.0
+    },
+    "gpt-5.4": {
+      "input": 2.5,
+      "cached_input": 0.25,
+      "output": 15.0
+    },
+    "gpt-5.4-mini": {
+      "input": 0.75,
+      "cached_input": 0.075,
+      "output": 4.5
+    },
+    "gpt-5.4-nano": {
+      "input": 0.2,
+      "cached_input": 0.02,
+      "output": 1.25
+    },
+    "gpt-5": {
+      "input": 1.25,
+      "cached_input": 0.125,
+      "output": 10.0
+    },
+    "gpt-5-mini": {
+      "input": 0.25,
+      "cached_input": 0.025,
+      "output": 2.0
+    },
+    "gpt-5-nano": {
+      "input": 0.05,
+      "cached_input": 0.005,
+      "output": 0.4
+    },
+    "gpt-4o": {
+      "input": 2.5,
+      "cached_input": 1.25,
+      "output": 10.0
+    },
+    "gpt-4o-mini": {
+      "input": 0.15,
+      "cached_input": 0.075,
+      "output": 0.6
+    },
+    "o3": {
+      "input": 2.0,
+      "cached_input": 0.5,
+      "output": 8.0
+    },
+    "o1": {
+      "input": 15.0,
+      "cached_input": 7.5,
+      "output": 60.0
+    }
+  },
+  "anthropic": {
+    "claude-opus-5-5": {
+      "input": 4.0,
+      "cache_write_5m": 5.0,
+      "cache_write_1h": 8.0,
+      "cache_read": 0.2,
+      "output": 20.0
+    },
+    "claude-sonnet-5-5": {
+      "input": 2.0,
+      "cache_write_5m": 2.5,
+      "cache_write_1h": 4.0,
+      "cache_read": 0.1,
+      "output": 10.0
+    },
+    "claude-haiku-5-5": {
+      "input": 0.1,
+      "cache_write_5m": 0.125,
+      "cache_write_1h": 0.2,
+      "cache_read": 0.01,
+      "output": 0.5
+    },
+    "claude-opus-5": {
+      "input": 5,
+      "cache_write_5m": 6.25,
+      "cache_write_1h": 10,
+      "cache_read": 0.5,
+      "output": 25
+    },
+    "claude-sonnet-5": {
+      "input": 2,
+      "cache_write_5m": 2.5,
+      "cache_write_1h": 4,
+      "cache_read": 0.2,
+      "output": 10
+    },
+    "claude-opus-4-8": {
+      "input": 5,
+      "cache_write_5m": 6.25,
+      "cache_write_1h": 10,
+      "cache_read": 0.5,
+      "output": 25
+    },
+    "claude-opus-4-7": {
+      "input": 5,
+      "cache_write_5m": 6.25,
+      "cache_write_1h": 10,
+      "cache_read": 0.5,
+      "output": 25
+    },
+    "claude-opus-4-6": {
+      "input": 5,
+      "cache_write_5m": 6.25,
+      "cache_write_1h": 10,
+      "cache_read": 0.5,
+      "output": 25
+    },
+    "claude-opus-4-5": {
+      "input": 5,
+      "cache_write_5m": 6.25,
+      "cache_write_1h": 10,
+      "cache_read": 0.5,
+      "output": 25
+    },
+    "claude-opus-4-1": {
+      "input": 15,
+      "cache_write_5m": 18.75,
+      "cache_write_1h": 30,
+      "cache_read": 1.5,
+      "output": 75
+    },
+    "claude-opus-4": {
+      "input": 15,
+      "cache_write_5m": 18.75,
+      "cache_write_1h": 30,
+      "cache_read": 1.5,
+      "output": 75
+    },
+    "claude-sonnet-4-6": {
+      "input": 3,
+      "cache_write_5m": 3.75,
+      "cache_write_1h": 6,
+      "cache_read": 0.3,
+      "output": 15
+    },
+    "claude-sonnet-4-5": {
+      "input": 3,
+      "cache_write_5m": 3.75,
+      "cache_write_1h": 6,
+      "cache_read": 0.3,
+      "output": 15
+    },
+    "claude-sonnet-4": {
+      "input": 3,
+      "cache_write_5m": 3.75,
+      "cache_write_1h": 6,
+      "cache_read": 0.3,
+      "output": 15
+    },
+    "claude-haiku-4-5": {
+      "input": 1,
+      "cache_write_5m": 1.25,
+      "cache_write_1h": 2,
+      "cache_read": 0.1,
+      "output": 5
+    },
+    "claude-haiku-3-5": {
+      "input": 0.8,
+      "cache_write_5m": 1,
+      "cache_write_1h": 1.6,
+      "cache_read": 0.08,
+      "output": 4
+    }
+  }
+}

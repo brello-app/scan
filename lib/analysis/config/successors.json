@@ -1,0 +1,27 @@
+{
+  "_as_of": "2026-10-16",
+  "_note": "Previous-generation model -> current model in the same tier. The rule only fires when the successor is cheaper for the user's actual token mix.",
+  "openai": {
+    "o1": "o3",
+    "gpt-4o": "gpt-5.4",
+    "gpt-4o-mini": "gpt-5.4-nano",
+    "gpt-5": "gpt-5.4",
+    "gpt-5-mini": "gpt-5.4-mini",
+    "gpt-5-nano": "gpt-5.4-nano"
+  },
+  "anthropic": {
+    "claude-opus-4": "claude-opus-5-5",
+    "claude-opus-4-1": "claude-opus-5-5",
+    "claude-opus-4-5": "claude-opus-5-5",
+    "claude-opus-4-6": "claude-opus-5-5",
+    "claude-opus-4-7": "claude-opus-5-5",
+    "claude-opus-4-8": "claude-opus-5-5",
+    "claude-opus-5": "claude-opus-5-5",
+    "claude-sonnet-4": "claude-sonnet-5-5",
+    "claude-sonnet-4-5": "claude-sonnet-5-5",
+    "claude-sonnet-4-6": "claude-sonnet-5-5",
+    "claude-sonnet-5": "claude-sonnet-5-5",
+    "claude-haiku-3-5": "claude-haiku-5-5",
+    "claude-haiku-4-5": "claude-haiku-5-5"
+  }
+}

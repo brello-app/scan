@@ -1,8 +1,17 @@
-import Image from "next/image";
+import type { Metadata } from "next";
 import { BrelloLogo } from "../components/brand/brello-logo";
 import { FlickeringGrid } from "@/components/ui/flickering-grid";
 import { MainDropzone } from "@/components/function/dropzone";
 import { LineShadowText } from "@/components/ui/line-shadow-text";
+import { CTA } from "@/components/function/cta";
+import { WhatBrelloFind } from "@/components/layout/what-brello-find";
+import { HowBrelloWorks } from "@/components/layout/how-brello-works";
+
+export const metadata: Metadata = {
+  title: "AI Cost Analyzer for OpenAI and Anthropic",
+  description:
+    "Find unusual AI API spending in your OpenAI or Anthropic CSV export. Analyze usage locally in your browser.",
+};
 
 export default function Home() {
   return (
@@ -28,6 +37,11 @@ export default function Home() {
           />
         </div>
       </section>
+      <WhatBrelloFind />
+      <HowBrelloWorks />
+      <div className="max-w-300 mx-auto mb-10">
+        <CTA />
+      </div>
     </main>
   );
 }

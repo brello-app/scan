@@ -1,34 +1,30 @@
-import { AlertBanner } from "@/components/ui/alert-banner";
-import { KPICard } from "@/components/ui/kpi";
+import type { Metadata } from "next";
+import { BrelloAdvise } from "@/components/function/advice";
+import { AnalysisAlertBanner } from "@/components/function/analysis-alert-banner";
+import { AnalysisChart } from "@/components/function/analysis-chart";
+import { DataLoader } from "@/components/function/data-loader";
+import { ResultKPIs } from "@/components/function/result-kpis";
+import { CTA } from "@/components/function/cta";
+import { SampleNotification } from "@/components/ui/sample-notification";
+
+export const metadata: Metadata = {
+  title: { absolute: "Scan Result Report - Filename unavailable" },
+  description:
+    "Review a local report of AI API usage, spending changes, and detected spikes.",
+  robots: { index: false, follow: false },
+};
 
 export default function ResultPage() {
   return (
-    <main className="my-20 max-w-300 w-full mx-auto">
-      <AlertBanner
-        title="An unfamiliar API key spent $1,539 in 2 days"
-        contents="key_2Lvd…XGY5 · Oct 8–9 · gpt-5.5 · That’s 66% of your total bill.
-[Revoke this key in OpenAI →] [Is this you? Mark as expected]"
-      />
-      <div className="flex py-5">
-        <KPICard className="flex-1" number="$2346" description="Total spent" />
-        <KPICard
-          className="flex-1"
-          number="$1539"
-          description="Suspicious spend"
-          warn
-        />
-        <KPICard
-          className="flex-1"
-          number="$808"
-          unit="/mo"
-          description="Normal run-rate"
-        />
-        <KPICard
-          className="flex-1"
-          number="$303"
-          unit="/mo"
-          description="You could save."
-        />
+    <main className="my-20 relative">
+      <SampleNotification />
+      <div className="max-w-300 w-full mx-auto">
+        <DataLoader />
+        <AnalysisAlertBanner />
+        <ResultKPIs />
+        <AnalysisChart />
+        <BrelloAdvise />
+        <CTA />
       </div>
     </main>
   );

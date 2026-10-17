@@ -1,0 +1,12 @@
+{
+  "lowCacheHit": 0.2,
+  "targetCacheRead": 0.8,
+  "targetCacheWrite5m": 0.05,
+  "minCacheInputCostMonthly": 20,
+  "minCacheablePrompt": 1024,
+  "shortInput": 1000,
+  "shortOutput": 200,
+  "batchableOutput": 50,
+  "minMonthlySavings": 1,
+  "minShareOfRunRate": 0.01
+}

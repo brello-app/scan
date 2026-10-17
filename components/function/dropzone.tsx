@@ -40,13 +40,14 @@ export function MainDropzone() {
   useEffect(() => {
     if (files.length == 0) return;
     const prepare = async () => {
-      const res = await parseCsvFile(files[0]);
+      const file = files[0];
+      const res = await parseCsvFile(file);
       setFiles([]);
       if (!res.ok) {
         setError(res.error);
         return;
       }
-      if (!saveUsage(res.rows, "upload"))
+      if (!saveUsage(res.rows, "upload", file.name))
         return alert("File is too large to analyze in the browser.");
       router.push("/result");
     };
@@ -84,8 +85,12 @@ export function MainDropzone() {
         }}
       />
       <div
+        id="scanner"
+        role="region"
+        aria-label="CSV scanner"
+        tabIndex={-1}
         className={cn(
-          "relative mx-auto h-70 w-full text-primary/50 transition-colors duration-200 my-10 cursor-pointer",
+          "relative mx-auto h-70 w-full scroll-mt-24 text-primary/50 transition-colors duration-200 my-10 cursor-pointer",
           isDragActive
             ? "bg-[linear-gradient(to_right,currentColor_60%,transparent_60%),linear-gradient(to_bottom,currentColor_60%,transparent_60%),linear-gradient(to_right,currentColor_60%,transparent_60%),linear-gradient(to_bottom,currentColor_60%,transparent_60%)]"
             : "",
@@ -129,8 +134,9 @@ export function MainDropzone() {
           <Telescope className="size-20" strokeWidth={1} />
           <h3 className="text-xl">Drop Your .csv File Here</h3>
           <p className="text-sm text-foreground/50 text-center mt-2">
-            Runs entirely in your browser.
-            <br /> Nothing is uploaded.
+            Your file never leaves your browser. <br /> We only collect
+            anonymous clicks <br />
+            to improve the site.
           </p>
           <div className="flex text-sm my-3 w-full gap-5 items-center">
             <div className="flex-1 h-px bg-foreground/30"></div>
@@ -144,8 +150,8 @@ export function MainDropzone() {
               const prepare = async () => {
                 const res = await parseCsvUrl("/sample/openai_usage.csv");
                 if (res.ok) {
-                  saveUsage(res.rows, "sample");
-                  router.push("/report");
+                  saveUsage(res.rows, "sample", "openai_usage.csv");
+                  router.push("/result");
                 }
               };
               prepare();
@@ -162,3 +168,4 @@ export function MainDropzone() {
     </>
   );
 }
+

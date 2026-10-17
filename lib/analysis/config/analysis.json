@@ -1,0 +1,25 @@
+{
+  "_note": "Tuning knobs for spike detection, classification and run-rate. Change here, not in code.",
+  "detection": {
+    "window": 14,
+    "minHistory": 5,
+    "ratio": 3,
+    "zScore": 3.5,
+    "floorUsd": 1,
+    "seriesMinShareOfDay": 0.25,
+    "seriesRatio": 2.5
+  },
+  "classification": {
+    "newShare": 0.5,
+    "sizeJump": 2,
+    "maxMixShift": 0.15,
+    "singleSeriesShare": 0.7,
+    "othersMaxGrowth": 1.5,
+    "extremeMultiple": 8
+  },
+  "runRate": {
+    "recentDays": 14,
+    "levelShiftMinDays": 7,
+    "levelShiftRatio": 1.3
+  }
+}
