@@ -2,7 +2,10 @@ import { CTAForm } from "./cta-form";
 
 export function CTA() {
   return (
-    <div className="w-full border border-foreground p-2 mt-20 z-40 relative">
+    <div
+      className="w-full border border-foreground p-2 mt-20 z-40 relative"
+      id="cta"
+    >
       <div className="w-full p-10 bg-primary text-primary-foreground flex justify-between">
         <div className="flex-1 flex flex-col justify-between">
           <h1 className="text-4xl font-black">

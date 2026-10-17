@@ -34,7 +34,7 @@ export function GlobalHeader() {
           <BrelloScanLogo className="w-30" />
         </Link>
         <div>
-          <Link className={buttonVariants()} href={"/result#cta"}>
+          <Link className={buttonVariants()} href={"/#cta"}>
             Get Early Access
           </Link>
         </div>

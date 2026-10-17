@@ -1,36 +1,21 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Brello Scan
 
-## Getting Started
+Brello is exported as a static Next.js site for Cloudflare Pages. pnpm build creates the deployable files in out/. CSV parsing and scan results run in the visitor's browser.
 
-First, run the development server:
+## Local development
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Run the UI with pnpm dev.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Next.js dev mode does not run Cloudflare Pages Functions. To test the waitlist endpoint locally, create an untracked .dev.vars file with the WAITLIST_URL value, then run pnpm build followed by pnpm dlx wrangler pages dev out.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Cloudflare Pages deployment
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Configure the project with:
 
-## Learn More
+- Framework preset: Next.js (Static HTML Export)
+- Build command: pnpm build
+- Build output directory: out
 
-To learn more about Next.js, take a look at the following resources:
+The waitlist form posts to /api/waitlist, handled by functions/api/waitlist.ts. Add WAITLIST_URL as a Pages Function secret for both Production and Preview. It must point to the HTTPS Google Apps Script web app URL.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The browser sends the form to the same Brello origin. The Pages Function forwards it to Apps Script, so the browser does not make a cross-origin request.
