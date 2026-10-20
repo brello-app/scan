@@ -92,34 +92,25 @@ export function CTAForm() {
   }, [toast, showInterviewToast]);
 
   const onSubmit = async (form: CTAFormData) => {
-    let res: Response;
+    const endpoint = process.env.NEXT_PUBLIC_WAITLIST_URL;
+    if (!endpoint) {
+      throw new Error("The waitlist endpoint is not configured.");
+    }
+
     try {
-      res = await fetch("/api/waitlist", {
+      const response = await fetch(endpoint, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...form }),
+        mode: "no-cors",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify(form),
       });
+
+      // Apps Script is cross-origin here, so no-cors returns an opaque response
+      // whose JSON body and status cannot be inspected by the browser.
+      if (response.type !== "opaque" && !response.ok) {
+        throw new Error("Could not join the waitlist. Please try again.");
+      }
     } catch {
-      throw new Error("Could not join the waitlist. Please try again.");
-    }
-
-    const responseText = await res.text();
-    let response: { error?: unknown } | null = null;
-    try {
-      response = JSON.parse(responseText);
-    } catch {
-      // Preserve the raw response below to make malformed API replies diagnosable.
-    }
-
-    if (!res.ok) {
-      throw new Error(
-        response && typeof response.error === "string"
-          ? response.error
-          : "Could not join the waitlist. Please try again.",
-      );
-    }
-
-    if (!response) {
       throw new Error("Could not join the waitlist. Please try again.");
     }
   };
@@ -399,7 +390,7 @@ export function CTAForm() {
           >
             <p className="font-semibold">
               {toast === "joined"
-                ? "You’re on the list. 🎉"
+                ? "Your request was sent."
                 : "Thanks for offering to help."}
             </p>
             <p className="mt-1 text-sm text-muted-foreground">
