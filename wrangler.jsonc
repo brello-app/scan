@@ -1,5 +1,12 @@
 {
   "name": "brello-scan",
-  "compatibility_date": "2026-10-21",
-  "pages_build_output_dir": "./out"
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./out",
+    "not_found_handling": "404-page",
+  },
+  "vars": {
+    "NEXT_PUBLIC_GOOGLE_DEPLOY_ID": "AKfycbx_CWUiIIC_S7UDJfLAd4nEWbI0qfbsrn80GmWUE0m772Bk1-UTKdLCoqY0LFUa1o3tNA",
+    "NEXT_PUBLIC_WAITLIST_URL": "https://script.google.com/macros/s/AKfycbx9AvKF08AK29FffCo8nNCMqC76s0IcWYN2F6oxXepof9ZdU337QrbTJZ9ZK7drvD0rJQ/exec",
+  },
 }
