@@ -20,3 +20,8 @@ Configure the project with:
 Set `NEXT_PUBLIC_WAITLIST_URL` as a build environment variable for both Production and Preview. Because it starts with `NEXT_PUBLIC_`, Next.js embeds it in the static browser bundle at build time; treat it as public, not as a secret. Set the same value locally in `.env.local`. The Google Apps Script deployment must allow access to anyone.
 
 The browser sends JSON to Apps Script as a `text/plain` POST to avoid a CORS preflight. The browser cannot read the cross-origin response, so the form can show network failures but cannot confirm application-level errors returned by the script.
+## Microsoft Clarity
+
+Set NEXT_PUBLIC_CLARITY_PROJECT_ID to your Clarity project ID in .env.local for local builds and in the Cloudflare Pages build environment for Production and Preview. Next.js embeds this public ID at build time.
+
+Use the same ID as astro-landing if both sites should appear in one Clarity project. Leave it unset to disable tracking.
